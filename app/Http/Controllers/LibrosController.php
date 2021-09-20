@@ -16,11 +16,8 @@ class LibrosController extends Controller{
     }
     
     //本ダッシュボード表示
-    public function index(){
-        $libros = Libro::where('user_id',Auth::user()->id)
-        ->orderBy('created_at', 'asc')
-        ->paginate(3);
-        return view('libros',[
+    public function index() {
+        $libros = Libro::where('user_id',Auth::user()->id)->orderBy('created_at', 'asc')->paginate(4);        return view('libros',[
             'libros' => $libros
         ]);
     }
